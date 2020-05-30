@@ -14,5 +14,13 @@
 # 
 # License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 
+CC = javac
+DEP = Player.class PlayersFactory.class
+
+all:	$(DEP)
+
+%.class:	%.java
+	$(CC) $<
+
 test:
-	javac -cp junit-4.13.jar:. TestPlayersFactory.java
+	$(CC) -cp junit-4.13.jar:. TestPlayersFactory.java
