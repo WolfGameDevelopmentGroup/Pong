@@ -19,8 +19,15 @@ import junit.framework.TestCase;
 
 public class TestPlayersFactory extends TestCase{
 
+	/* Test building in Players Factory */
 	public void testPlayersBuilder(){
+		
 		PongPlayer player = PlayersFactory.createPongPlayer(1);
-		assertEquals(0,0,0);
+		assertNotNull(player);
+		assertTrue(player instanceof Player);
+	
+		PongPlayer enemy = PlayersFactory.createPongPlayer(2);
+		assertNotNull(enemy);
+		assertTrue(enemy instanceof Enemy);
 	}
 }
