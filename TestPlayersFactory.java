@@ -15,11 +15,12 @@
 */
 
 import org.junit.Assert.*;
+import junit.framework.TestCase;
 
-public class TestPlayersFactory{
+public class TestPlayersFactory extends TestCase{
 
 	public void testPlayersBuilder(){
 		PongPlayer player = PlayersFactory.createPongPlayer(1);
-//		assertTrue(PlayersFactory.createPongPlayer(2));
+		assertEquals(0,0,0);
 	}
 }
