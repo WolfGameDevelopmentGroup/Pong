@@ -14,11 +14,12 @@
 	 License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 */
 
-import junit.framework.*;
+import org.junit.Assert.*;
 
-public class TestPlayersFactory extends TestCase{
+public class TestPlayersFactory{
 
 	public void testPlayersBuilder(){
-		Player = new PlayersFactory();
+		PongPlayer player = PlayersFactory.createPongPlayer(1);
+//		assertTrue(PlayersFactory.createPongPlayer(2));
 	}
 }

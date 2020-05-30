@@ -15,7 +15,8 @@
 # License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 
 CC = javac
-DEP = Player.class Enemy.class PlayersFactory.class
+JVM = java
+DEP = PongPlayer.class Player.class Enemy.class PlayersFactory.class
 
 all:	$(DEP)
 
@@ -23,4 +24,5 @@ all:	$(DEP)
 	$(CC) $<
 
 test:
-	$(CC) -cp junit-4.13.jar:. TestPlayersFactory.java
+	$(CC) -cp junit-4.13.jar:hamcrest-core-2.2.jar:. TestPlayersFactory.java
+	$(JVM) -jar junit-platform-console-standalone-1.6.2.jar -cp . -c TestPlayersFactory

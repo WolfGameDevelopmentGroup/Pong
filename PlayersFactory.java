@@ -16,7 +16,7 @@
 
 public class PlayersFactory{
 	
-	public static PongPlayer createPlayer(int i){
+	public static PongPlayer createPongPlayer(int i){
 
 		if(i==1){
 			return new Player();
