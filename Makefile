@@ -17,12 +17,21 @@
 CC = javac
 JVM = java
 DEP = PongPlayer.class Player.class Enemy.class PlayersFactory.class
+TEST = TestPlayersFactory.java
 
 all:	$(DEP)
 
 %.class:	%.java
 	$(CC) $<
 
-test:
-	$(CC) -cp junit-4.13.jar:hamcrest-core-2.2.jar:. TestPlayersFactory.java
-	$(JVM) -jar junit-platform-console-standalone-1.6.2.jar -cp . -c TestPlayersFactory
+Test%.class:	Test%.java
+	$(CC) -cp junit-4.13.jar:hamcrest-core-2.2.jar:. $<
+
+test:	$(TEST:.java=.class)
+	$(JVM) -jar junit-platform-console-standalone-1.6.2.jar -cp . -c $(TEST:.java=)
+
+cleantest:
+	rm Test*.class
+
+clean:
+	rm *.class
