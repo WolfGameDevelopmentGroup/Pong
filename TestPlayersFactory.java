@@ -22,12 +22,16 @@ public class TestPlayersFactory extends TestCase{
 	/* Test building in Players Factory */
 	public void testPlayersBuilder(){
 		
-		PongPlayer player = PlayersFactory.createPongPlayer(1);
+		PongPlayer player = PlayersFactory.createPongPlayer("player");
 		assertNotNull(player);
 		assertTrue(player instanceof Player);
 	
-		PongPlayer enemy = PlayersFactory.createPongPlayer(2);
+		PongPlayer enemy = PlayersFactory.createPongPlayer("enemy");
 		assertNotNull(enemy);
 		assertTrue(enemy instanceof Enemy);
+
+		PongPlayer dummy = PlayersFactory.createPongPlayer("dummy");
+		assertNull(dummy);
+		assertFalse(dummy instanceof Player);
 	}
 }

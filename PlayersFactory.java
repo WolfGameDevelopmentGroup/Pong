@@ -14,14 +14,21 @@
 	 License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 */
 
-public class PlayersFactory{
+public class PlayersFactory{ 
 	
-	public static PongPlayer createPongPlayer(int i){
+	public static PongPlayer createPongPlayer(String type) throws IllegalArgumentException{
 
-		if(i==1){
-			return new Player();
-		}else{
-			return new Enemy();
+		try{
+			if(type == "player"){
+				return new Player();
+			}else if(type == "enemy"){
+				return new Enemy();
+			}else{
+				throw new IllegalArgumentException("CreatePongPlayer: Argument of this factory method can be \'player\' or \'enemy\' only\nReturned null");
+			}
+		}catch(IllegalArgumentException e){
+			System.out.println(e.getMessage());
+			return null;
 		}
 	}
 }
