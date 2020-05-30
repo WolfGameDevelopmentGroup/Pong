@@ -15,4 +15,4 @@
 # License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 
 test:
-	junit TestPlayersFactory.java
+	javac -cp junit-4.13.jar:. TestPlayersFactory.java
