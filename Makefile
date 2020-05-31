@@ -16,8 +16,8 @@
 
 CC = javac
 JVM = java
-DEP = PongPlayer.class Player.class Enemy.class PlayersFactory.class
-TEST = TestPlayersFactory.java
+DEP = PongPlayer.class Player.class Enemy.class PlayersFactory.class Game.class
+TEST = TestPlayersFactory.java TestGameFramesPerSecond.java
 
 all:	$(DEP)
 
@@ -28,7 +28,7 @@ Test%.class:	Test%.java
 	$(CC) -cp junit-4.13.jar:hamcrest-core-2.2.jar:. $<
 
 test:	$(TEST:.java=.class)
-	$(JVM) -jar junit-platform-console-standalone-1.6.2.jar -cp . -c $(TEST:.java=)
+	$(JVM) -jar junit-platform-console-standalone-1.6.2.jar -cp . $(addprefix -c , $(TEST:.java=))
 
 cleantest:
 	rm Test*.class
