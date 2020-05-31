@@ -49,13 +49,19 @@ public class Game implements Runnable{
 	}
 
 	public void renderize(){
+		this.actualFrame++;
 	}
 
 	public void run(){
 
 		while(this.isRunning){
-			update();
-			renderize();
+			try{
+				update();
+				renderize();
+				Thread.sleep(1000/this.fps);
+			}catch(InterruptedException e){
+				e.printStackTrace();
+			}
 		}
 	} 
 }

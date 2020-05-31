@@ -20,11 +20,45 @@ import junit.framework.TestCase;
 
 public class TestGameFramesPerSecond extends TestCase{
 
-	/* Test Game Frames per Second control */
-	public void testFramesPerSecondCounter(){
+	/* Test Game Building */
+	public void testGameBuilding(){
 		Game game =  new Game();
 		assertNotNull(game);
 		game.start();
 		assertTrue(game.getIsRunning());
+	}
+
+	/* Test Game frames per second tax */
+	public void testFramesPerSecondCounter(){
+		Game game = new Game();
+		game.start();
+		assertTrue(game.getIsRunning());
+
+
+		try {
+			Thread.sleep(1000);
+
+			/* Test FPS=1  */
+			int d1Frame = game.getActualFrame();
+			final long ms = 2000;
+			final int s = 2;
+			Thread.sleep(ms);
+			int d2Frame = game.getActualFrame();
+			double frames = (double)(d2Frame-d1Frame);
+			assertEquals(frames,2,1);
+
+			/* Test FPS=60 */
+			game.setFPS(60);
+			Thread.sleep(1000);
+			d1Frame = game.getActualFrame();
+			Thread.sleep(ms);
+			d2Frame = game.getActualFrame();
+			double fps = (double)(d2Frame-d1Frame)/s;
+			assertEquals(fps,60,2);
+
+		} catch(InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+
 	}
 }
