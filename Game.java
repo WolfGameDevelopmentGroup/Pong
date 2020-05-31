@@ -18,6 +18,8 @@ public class Game implements Runnable{
 
 	private boolean isRunning;
 	private long startGameTime;
+	private int actualFrame=0;
+	private int fps = 1;
 
 	public void setIsRunning(boolean b){
 		this.isRunning = b;
@@ -25,6 +27,14 @@ public class Game implements Runnable{
 
 	public boolean getIsRunning(){
 		return this.isRunning;
+	}
+
+	public int getActualFrame(){
+		return this.actualFrame;
+	}
+
+	public void setFPS(int f){
+		this.fps = f;
 	}
 
 	public synchronized void start(){
