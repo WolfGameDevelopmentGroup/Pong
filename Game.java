@@ -18,8 +18,8 @@ public class Game implements Runnable{
 
 	private boolean isRunning;
 	private long startGameTime;
-	private int actualFrame=0;
-	private int fps = 1;
+	private int actualFrameNumber=0;
+	private int framesPerSecondRate = 1;
 
 	public void setIsRunning(boolean b){
 		this.isRunning = b;
@@ -29,12 +29,12 @@ public class Game implements Runnable{
 		return this.isRunning;
 	}
 
-	public int getActualFrame(){
-		return this.actualFrame;
+	public int getActualFrameNumber(){
+		return this.actualFrameNumber;
 	}
 
-	public void setFPS(int f){
-		this.fps = f;
+	public void setFramesPerSecondRate(int f){
+		this.framesPerSecondRate = f;
 	}
 
 	public synchronized void start(){
@@ -49,7 +49,7 @@ public class Game implements Runnable{
 	}
 
 	public void renderize(){
-		this.actualFrame++;
+		this.actualFrameNumber++;
 	}
 
 	public void run(){
@@ -58,7 +58,7 @@ public class Game implements Runnable{
 			try{
 				update();
 				renderize();
-				Thread.sleep(1000/this.fps);
+				Thread.sleep(1000/this.framesPerSecondRate);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}

@@ -39,20 +39,20 @@ public class TestGameFramesPerSecond extends TestCase{
 			Thread.sleep(1000);
 
 			/* Test FPS=1  */
-			int d1Frame = game.getActualFrame();
+			int d1Frame = game.getActualFrameNumber();
 			final long ms = 2000;
 			final int s = 2;
 			Thread.sleep(ms);
-			int d2Frame = game.getActualFrame();
+			int d2Frame = game.getActualFrameNumber();
 			double frames = (double)(d2Frame-d1Frame);
 			assertEquals(frames,2,1);
 
 			/* Test FPS=60 */
-			game.setFPS(60);
+			game.setFramesPerSecondRate(60);
 			Thread.sleep(1000);
-			d1Frame = game.getActualFrame();
+			d1Frame = game.getActualFrameNumber();
 			Thread.sleep(ms);
-			d2Frame = game.getActualFrame();
+			d2Frame = game.getActualFrameNumber();
 			double fps = (double)(d2Frame-d1Frame)/s;
 			assertEquals(fps,60,2);
 
