@@ -18,7 +18,6 @@ public class PlayersFactory{
 	
 	public static PongPlayer createPongPlayer(String type) throws IllegalArgumentException{
 
-		try{
 			if(type == "player"){
 				return new Player();
 			}else if(type == "enemy"){
@@ -26,9 +25,5 @@ public class PlayersFactory{
 			}else{
 				throw new IllegalArgumentException("CreatePongPlayer: Argument of this factory method can be \'player\' or \'enemy\' only\nReturned null");
 			}
-		}catch(IllegalArgumentException e){
-			System.out.println(e.getMessage());
-			return null;
-		}
 	}
 }

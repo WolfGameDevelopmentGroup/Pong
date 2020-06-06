@@ -25,7 +25,7 @@ public class TestPlayersFactory{
 	@Test
 	@Tag("PongPlayerFactory")
 	@DisplayName("PongPlayer Factory")
-	public void testPlayersBuilder(){
+	public void testPlayersBuilder() throws IllegalArgumentException{
 		
 		PongPlayer player = PlayersFactory.createPongPlayer("player");
 		assertNotNull(player);
@@ -35,8 +35,8 @@ public class TestPlayersFactory{
 		assertNotNull(enemy);
 		assertTrue(enemy instanceof Enemy);
 
-		PongPlayer dummy = PlayersFactory.createPongPlayer("dummy");
-		assertNull(dummy);
-		assertFalse(dummy instanceof Player);
+		assertThrows(IllegalArgumentException.class,()->{
+			PlayersFactory.createPongPlayer("dummy");
+		});
 	}
 }
