@@ -15,12 +15,17 @@
 	 License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 */
 
-import org.junit.Assert.*;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TestGameFramesPerSecond extends TestCase{
+public class TestGameFramesPerSecond{
 
-	/* Test Game Building */
+	@Test
+	@Tag("GameBuilding")
+	@DisplayName("Game class Building")
 	public void testGameBuilding(){
 		Game game =  new Game();
 		assertNotNull(game);
@@ -28,7 +33,9 @@ public class TestGameFramesPerSecond extends TestCase{
 		assertTrue(game.getIsRunning());
 	}
 
-	/* Test Game frames per second tax */
+	@Test
+	@Tag("FramesPerSecondRate")
+	@DisplayName("Frames per second rate")
 	public void testFramesPerSecondCounter(){
 		Game game = new Game();
 		game.start();
@@ -39,20 +46,20 @@ public class TestGameFramesPerSecond extends TestCase{
 			Thread.sleep(1000);
 
 			/* Test FPS=1  */
-			int d1Frame = game.getActualFrame();
+			int d1Frame = game.getActualFrameNumber();
 			final long ms = 2000;
 			final int s = 2;
 			Thread.sleep(ms);
-			int d2Frame = game.getActualFrame();
+			int d2Frame = game.getActualFrameNumber();
 			double frames = (double)(d2Frame-d1Frame);
 			assertEquals(frames,2,1);
 
 			/* Test FPS=60 */
-			game.setFPS(60);
+			game.setFramesPerSecondRate(60);
 			Thread.sleep(1000);
-			d1Frame = game.getActualFrame();
+			d1Frame = game.getActualFrameNumber();
 			Thread.sleep(ms);
-			d2Frame = game.getActualFrame();
+			d2Frame = game.getActualFrameNumber();
 			double fps = (double)(d2Frame-d1Frame)/s;
 			assertEquals(fps,60,2);
 

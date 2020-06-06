@@ -14,12 +14,17 @@
 	 License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 */
 
-import org.junit.Assert.*;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TestPlayersFactory extends TestCase{
+public class TestPlayersFactory{ 
 
-	/* Test building in Players Factory */
+	@Test
+	@Tag("PongPlayerFactory")
+	@DisplayName("PongPlayer Factory")
 	public void testPlayersBuilder(){
 		
 		PongPlayer player = PlayersFactory.createPongPlayer("player");
