@@ -15,12 +15,17 @@
 	 License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 */
 
-import org.junit.Assert.*;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TestGameFramesPerSecond extends TestCase{
+public class TestGameFramesPerSecond{
 
-	/* Test Game Building */
+	@Test
+	@Tag("GameBuilding")
+	@DisplayName("Game class Building")
 	public void testGameBuilding(){
 		Game game =  new Game();
 		assertNotNull(game);
@@ -28,7 +33,9 @@ public class TestGameFramesPerSecond extends TestCase{
 		assertTrue(game.getIsRunning());
 	}
 
-	/* Test Game frames per second tax */
+	@Test
+	@Tag("FramesPerSecondRate")
+	@DisplayName("Frames per second rate")
 	public void testFramesPerSecondCounter(){
 		Game game = new Game();
 		game.start();
