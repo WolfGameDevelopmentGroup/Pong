@@ -15,10 +15,25 @@
 */
 
 public class Player implements PongPlayer{
-	
+
+	private int xCoordinate;
+	private int yCoordinate; 
+
+	public int getXCoordinate(){
+		return this.xCoordinate;
+	}
+
+	public int getYCoordinate(){
+		return this.yCoordinate;
+	}
+
 	public void update(){}
 
-	public void move(){}
+	public void move(int x, int y){
+		this.xCoordinate = x;
+		this.yCoordinate = y;
+	}
 
 	public void draw(){}
+
 }

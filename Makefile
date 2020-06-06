@@ -17,7 +17,7 @@
 CC = javac
 JVM = java
 DEP = PongPlayer.class Player.class Enemy.class PlayersFactory.class Game.class
-TEST = TestPlayersFactory.java TestGameFramesPerSecond.java
+TEST = TestPlayersFactory.java TestGameFramesPerSecond.java TestPlayer.java
 
 all:	$(DEP)
 
