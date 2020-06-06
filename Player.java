@@ -24,6 +24,10 @@ public class Player implements PongPlayer{
 		return this.xCoordinate;
 	}
 
+	public int getYCoordinate(){
+		return this.yCoordinate;
+	}
+
 	public void setVelocity(int v){
 		this.velocity = v;
 	}

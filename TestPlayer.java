@@ -32,9 +32,15 @@ public class TestPlayer{
 		
 		p.moveRight();
 		assertEquals(1,p.getXCoordinate());
-		
 		p.moveLeft();
 		assertEquals(0,p.getXCoordinate());
+
+		p.setVelocity(10);
+		p.moveRight();
+		assertEquals(10,p.getXCoordinate());
+		p.moveLeft();
+		assertEquals(0,p.getXCoordinate());
+
 	}
 
 }
