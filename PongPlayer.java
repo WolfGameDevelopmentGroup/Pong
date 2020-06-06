@@ -16,5 +16,9 @@
 
 public interface PongPlayer{
 
-	public void hello();
+	public void update();
+
+	public void move();
+
+	public void draw();
 }

@@ -16,7 +16,9 @@
 
 public class Player implements PongPlayer{
 	
-	public void hello(){
-		System.out.println("Hello, I'm the Player!");
-	}
+	public void update(){}
+
+	public void move(){}
+
+	public void draw(){}
 }
