@@ -40,7 +40,30 @@ public class TestPlayer{
 		assertEquals(10,p.getXCoordinate());
 		p.moveLeft();
 		assertEquals(0,p.getXCoordinate());
+	}
 
+	@Test
+	@Tag("PlayerMovementLimits")
+	@DisplayName("Check Player movement limits")
+	public void testPlayerTryMovementOutOfBondaries(){
+		
+		Player p = (Player) PlayersFactory.createPongPlayer("player");
+		p.setXCoordinateMaximum(20);
+		assertEquals(20,p.getXCoordinateMaximum());
+		p.setXCoordinateMinimum(0);
+		assertEquals(0,p.getXCoordinateMinimum());
+		p.setVelocity(10);
+		assertEquals(0,p.getXCoordinate());
+		p.moveLeft();
+		assertEquals(0,p.getXCoordinate());
+
+		/* Player width is 10 and Maximum x is 20
+		   so it can move Right only once and x coordinate
+		   should remains 10 besides it tries to move right.*/
+		p.setWidth(10);
+		p.moveRight();
+		p.moveRight();
+		assertEquals(10,p.getXCoordinate());
 	}
 
 }
