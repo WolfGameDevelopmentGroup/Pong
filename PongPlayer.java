@@ -18,7 +18,9 @@ public interface PongPlayer{
 
 	public void update();
 
-	public void move(int x, int y);
+	public void moveLeft();
+
+	public void moveRight();
 
 	public void draw();
 }

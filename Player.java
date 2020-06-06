@@ -17,21 +17,29 @@
 public class Player implements PongPlayer{
 
 	private int xCoordinate;
-	private int yCoordinate; 
+	private int yCoordinate = 0;
+	private int velocity = 1;
 
 	public int getXCoordinate(){
 		return this.xCoordinate;
 	}
 
-	public int getYCoordinate(){
-		return this.yCoordinate;
+	public void setVelocity(int v){
+		this.velocity = v;
+	}
+
+	public int getVelocity(){
+		return this.velocity;
 	}
 
 	public void update(){}
 
-	public void move(int x, int y){
-		this.xCoordinate = x;
-		this.yCoordinate = y;
+	public void moveLeft(){
+		this.xCoordinate -= this.velocity;
+	}
+
+	public void moveRight(){
+		this.xCoordinate += this.velocity;
 	}
 
 	public void draw(){}

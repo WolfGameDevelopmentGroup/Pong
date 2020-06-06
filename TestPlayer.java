@@ -29,15 +29,12 @@ public class TestPlayer{
 
 		Player p = (Player) PlayersFactory.createPongPlayer("player");
 		assertEquals(0,p.getXCoordinate());
-		assertEquals(0,p.getYCoordinate());
 		
-		p.move(10,10);
-		assertEquals(10,p.getXCoordinate());
-		assertEquals(10,p.getYCoordinate());
+		p.moveRight();
+		assertEquals(1,p.getXCoordinate());
 		
-		p.move(20,20);
-		assertEquals(20,p.getXCoordinate());
-		assertEquals(20,p.getYCoordinate());
+		p.moveLeft();
+		assertEquals(0,p.getXCoordinate());
 	}
 
 }
