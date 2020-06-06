@@ -14,11 +14,7 @@
 	 License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 */
 
-public class Enemy implements PongPlayer{
+public class Enemy extends PongPlayer{
 	
 	public void update(){}
-
-	public void move(){}
-
-	public void draw(){}
 }

@@ -1,7 +1,7 @@
 /*
 	 PongPlayer.java (Java)
 	 
-	 Purpose: Interface of Player and Enemy classes.
+	 Purpose: Abstract superclass of Player and Enemy classes.
 	 
 	 Site: https://dirack.github.io
 	 
@@ -14,13 +14,73 @@
 	 License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 */
 
-public interface PongPlayer{
+public abstract class PongPlayer{
 
-	public void update();
+	private int xCoordinate = 0;
+	private int yCoordinate = 0;
+	private int velocity = 1;
+	private int xCoordinateMaximum = 10;
+	private int xCoordinateMinimum = 0;
+	private int width = 0;
 
-	public void moveLeft();
+	public int getXCoordinate(){
+		return this.xCoordinate;
+	}
 
-	public void moveRight();
+	public int getYCoordinate(){
+		return this.yCoordinate;
+	}
 
-	public void draw();
+	public void setVelocity(int v){
+		this.velocity = v;
+	}
+
+	public int getVelocity(){
+		return this.velocity;
+	}
+
+	public void setXCoordinateMaximum(int xmax){
+		this.xCoordinateMaximum = xmax;
+	}
+
+	public void setXCoordinateMinimum(int xmin){
+		this.xCoordinateMinimum = xmin;
+	}
+
+	public int getXCoordinateMaximum(){
+		return this.xCoordinateMaximum;
+	}
+
+	public int getXCoordinateMinimum(){
+		return this.xCoordinateMinimum;
+	}
+
+	public int getWidth(){
+		return this.width;
+	}
+
+	public void setWidth(int w){
+		this.width = w;
+	}
+
+	public void update(){}
+
+	public void moveLeft(){
+		if((this.xCoordinate - this.velocity) < this.xCoordinateMinimum){
+			this.xCoordinate = this.xCoordinateMinimum;
+			return;
+		}
+
+		this.xCoordinate -= this.velocity;
+	}
+
+	public void moveRight(){
+		if((this.xCoordinate + this.width + this.velocity) > this.xCoordinateMaximum){
+			this.xCoordinate = (this.xCoordinateMaximum - this.width);
+			return;
+		}
+
+		this.xCoordinate += this.velocity;
+	}
+
 }
