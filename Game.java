@@ -20,6 +20,13 @@ public class Game implements Runnable{
 	private long startGameTime;
 	private int actualFrameNumber=0;
 	private int framesPerSecondRate = 1;
+	public Player player;
+	public Enemy enemy;
+
+	public Game(){
+		this.player = (Player) PlayersFactory.createPongPlayer("player");
+		this.enemy = (Enemy) PlayersFactory.createPongPlayer("enemy");
+	}
 
 	public void setIsRunning(boolean b){
 		this.isRunning = b;
@@ -46,6 +53,8 @@ public class Game implements Runnable{
 	}
 
 	public void update(){
+		this.player.update();
+		this.enemy.update();
 	}
 
 	public void renderize(){

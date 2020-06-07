@@ -31,6 +31,10 @@ public class TestGame{
 		assertNotNull(game);
 		game.start();
 		assertTrue(game.getIsRunning());
+
+		/* Check game objects Player and Enemy building */
+		assertNotNull(game.player);
+		assertNotNull(game.enemy);
 	}
 
 	@Test
