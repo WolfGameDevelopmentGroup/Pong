@@ -1,5 +1,5 @@
 /*
-	 TestGameFramesPerSecond.java (Java)
+	 TestGame.java (Java)
 	 
 	 Purpose: Test class Game build and if it is running with
 	 correct frames per second tax.
@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestGameFramesPerSecond{
+public class TestGame{
 
 	@Test
 	@Tag("GameBuilding")
