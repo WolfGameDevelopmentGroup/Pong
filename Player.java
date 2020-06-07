@@ -14,9 +14,8 @@
 	 License: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 */
 
-public class Player implements PongPlayer{
-	
-	public void hello(){
-		System.out.println("Hello, I'm the Player!");
-	}
+public class Player extends PongPlayer{
+
+	public void update(){}
+
 }
